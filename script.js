@@ -12,17 +12,18 @@ window.addEventListener("load", function() {
     
     form.addEventListener("submit", function(event) {
         event.preventDefault();
+         let faultyItems1 = document.getElementById("faultyItems");
+        faultyItems1.visibility = "invisible";
        let pilotName1 = document.querySelector("input[name=pilotName]").value;
        let copilotName1 = document.querySelector("input[name=copilotName]").value;
        let fuelLevel1 = document.querySelector("input[name=fuelLevel]").value;
        let cargoLevel1 = document.querySelector("input[name=cargoMass]").value;
-       let faultyItems1 = document.getElementById("faultyItems");
-       faultyItems1.visibility = "invisible";
        if (pilotName1 === "" || copilotName1 === "" || fuelLevel1 === "" || cargoLevel1 === "") {
           alert("All fields are required!");
          
        }
        formSubmission(document, faultyItems1, pilotName1, copilotName1, fuelLevel1, cargoLevel1)
+       let form = document.querySelector("form");
     });
     
     let listedPlanets;

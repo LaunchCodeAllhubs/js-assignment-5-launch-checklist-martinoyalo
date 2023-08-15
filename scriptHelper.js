@@ -36,22 +36,22 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let pStatus = document.getElementById("pilotStatus")
     let cpStatus = document.getElementById("copilotStatus")
         if(validateInput(pilot) == "Empty" || validateInput(pilot) == "is a Number"){
-            alert("name required")} else {pStatus.innerText = `${pilot} is ready`}
+           return alert("pilot name required")} else {pStatus.innerText = `${pilot} is ready`}
         if(validateInput(copilot) == "Empty" || validateInput(copilot) == "is a Number"){
-            alert("name required")} else {cpStatus.innerText = `${copilot} is ready`}
+            return alert("copilot name required")} else {cpStatus.innerText = `${copilot} is ready`}
     let fuelStatus = document.getElementById("fuelStatus")
     let cargoStatus = document.getElementById("cargoStatus")
     let launchStatus = document.getElementById("launchStatus")
     
     if((validateInput(fuelLevel) == "Not a Number") || validateInput(fuelLevel) == "Empty"){
-           alert("number required")} else if(fuelLevel < 10000) {
+           return alert("fuel number required")} else if(fuelLevel < 10000) {
         list.style.visibility = "visible";
         fuelStatus.innerText = "Not enough fuel for launch";
         launchStatus.innerText = "Shuttle not ready for launch";
         launchStatus.style.color = 'red';
     }
-    if((validateInput(cargoLevel) == "Not a Number") || validateInput(fuelLevel) == "Empty"){
-        alert("number required")} else if(cargoLevel > 10000) {
+    if((validateInput(cargoLevel) == "Not a Number") || validateInput(cargoLevel) == "Empty"){
+       return alert("cargo number required")} else if(cargoLevel > 10000) {
         list.style.visibility = "visible";
         cargoStatus.innerText = "Too much mass for the shuttle to take off";
         launchStatus.innerText = "Shuttle not ready for launch";
@@ -61,9 +61,6 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         launchStatus.innerText = "Shuttle ready for launch";
         launchStatus.style.color = "#419F6A";
     }
-    console.log(fuelStatus)
-    console.log(cargoStatus)
-    console.log(launchStatus)
 }
 
 async function myFetch() {
